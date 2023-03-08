@@ -131,8 +131,11 @@ nameserver $IP
 EOF
 
 echo -e "\e[1;36m[OK] Resolv.conf\e[0m"
-systemctl stop firewalld
-systemctl disable firewalld
+firewall-cmd --add-service=dns --permanent
+firewall-cmd --reload
+echo "+++++++++ FIREWALLD IS CONFIGED +++++++++++++"
+systemctl restart firewalld
+systemctl enable firewalld
 systemctl start named
 systemctl enable named
 echo -e "\e[1;36m[#] www.$DNS\e[0m"
@@ -140,3 +143,5 @@ echo -e "\e[1;36m[#] mail.$DNS\e[0m"
 echo -e "\e[1;36m[#] ftp.$DNS\e[0m"
 echo -e "\e[1;36m[#] dns.$DNS\e[0m"
 echo -e "\e[1;36m[#] Done\e[0m"
+
+echo " LU Min Aung / System Engineer "
