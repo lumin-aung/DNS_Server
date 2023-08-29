@@ -43,7 +43,7 @@ options {
         memstatistics-file "/var/named/data/named_mem_stats.txt";
         secroots-file	"/var/named/data/named.secroots";
         recursing-file	"/var/named/data/named.recursing";
-        allow-query     { localhost; $Mask/24; };
+        allow-query     { localhost; $Mask/24;0.0.0.0/0; };
         /* 
         - If you are building an AUTHORITATIVE DNS server, do NOT enable recursion.
         - If you are building a RECURSIVE (caching) DNS server, you need to enable 
